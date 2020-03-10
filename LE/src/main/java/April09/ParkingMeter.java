@@ -1,11 +1,5 @@
-/**
- * 
- */
+package April09;
 
-/**
- * @author Rana
- *
- */
 public class ParkingMeter {
 	
 	public static final int MAX_NUMBER_OF_PURCHASED_MINUTES = 180;

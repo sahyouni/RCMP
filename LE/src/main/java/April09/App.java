@@ -1,20 +1,12 @@
+package April09;
 
 /**
- * Class Driver info
+ * Hello world!
  *
- * @author (Cherry Cui)
- * @version (2020-03-04)
  */
-public class Driver
+public class App 
 {
-    
-    /**
-     * A main method 
-     *
-    
-     * @return    the sum of x and y
-     */
-    public static void main (String[] args)
+    public static void main( String[] args )
     {
         ParkedCar car = new ParkedCar("cherry","Audi", 2019,"AAABBB",125);
         car.displayDetails();
@@ -23,8 +15,5 @@ public class Driver
         meter.displayDetails();
         
         PoliceOfficer officer = new PoliceOfficer("Test Cop", "A12345");
-        officer.issueParkingTicket(car,meter);
-     
-        
-    }
+        officer.issueParkingTicket(car,meter);    }
 }
