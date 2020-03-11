@@ -17,7 +17,7 @@ public class ParkingTicket {
     private String officerBadgeNumber;
     private String carLicensePlateNumber;
     private double fineAmountInCAD;
-    private static int counter = 1000;
+    public static int counter = 1000;
     private static int resetCounter = counter;
 
     /**
@@ -90,14 +90,13 @@ public class ParkingTicket {
      */
     public void setOfficerName(String inputOfficerName) {
         if (inputOfficerName == null) {
-            System.out.println("officer name must not be null");
-        } else {
-            if (inputOfficerName == "") {
-                System.out.println("officer name must not be an empty String");
-            } else {
-                officerName = inputOfficerName;
-            }
+            throw new IllegalArgumentException("officer name must not be null");
         }
+        if (inputOfficerName == "") {
+            throw new IllegalArgumentException("officer name must not be an empty String");
+        }
+
+        officerName = inputOfficerName;
     }
 
     /**
@@ -108,15 +107,14 @@ public class ParkingTicket {
      * 
      */
     public void setOfficerBadgeNumber(String inputOfficerBadgeNumber) {
-        if (inputOfficerBadgeNumber == null) {
-            System.out.println("badge number must not be null");
-        } else {
-            if (inputOfficerBadgeNumber == "") {
-                System.out.println("badge number must not be an empty String");
-            } else {
-                officerBadgeNumber = inputOfficerBadgeNumber;
-            }
-        }
+        if (inputOfficerBadgeNumber == null)
+            throw new IllegalArgumentException("badge number must not be null");
+
+        if (inputOfficerBadgeNumber == "")
+            throw new IllegalArgumentException("badge number must not be empty String");
+
+        officerBadgeNumber = inputOfficerBadgeNumber;
+
     }
 
     /**
@@ -127,14 +125,14 @@ public class ParkingTicket {
      */
     public void setCarLicensePlateNumber(String carLicenseNumber) {
         if (carLicenseNumber == null) {
-            System.out.println("car license plate number must not be null");
-        } else {
-            if (carLicenseNumber == "") {
-                System.out.println("car license plate number must not be an empty String");
-            } else {
-                carLicensePlateNumber = carLicenseNumber;
-            }
+            throw new IllegalArgumentException("car license plate number must not be null");
+
         }
+        if (carLicenseNumber == "") {
+            throw new IllegalArgumentException("car license plate number must not be empty String");
+
+        }
+        carLicensePlateNumber = carLicenseNumber;
     }
 
     /**
@@ -144,14 +142,15 @@ public class ParkingTicket {
      */
     public void setFineAmountInCAD(double fine) {
         if (fine == 0) {
-            System.out.println("fine amount must not be 0");
-        } else {
-            if (fine < 0) {
-                System.out.println("fine amount must not be negative");
-            } else {
-                fineAmountInCAD = fine;
-            }
-        }
+            throw new IllegalArgumentException("fine amount must not be 0");
+        } 
+        
+        if (fine < 0) {
+            throw new IllegalArgumentException("fine amount must not be negative");
+        } 
+        
+        fineAmountInCAD = fine;
+        
     }
 
     /**
