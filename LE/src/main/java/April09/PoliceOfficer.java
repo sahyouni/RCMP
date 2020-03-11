@@ -82,11 +82,10 @@ public class PoliceOfficer {
 
     private boolean isParkingTimeExpired(ParkedCar car, ParkingMeter meter) {
 
-        if (car.getNumberOfMinutesParked() > meter.getNumberOfPurchasedMinutes()) {
+        if (car.getNumberOfMinutesParked() > meter.getNumberOfPurchasedMinutes())
             return true;
-        } else {
-            return false;
-        }
+
+        return false;
 
     }
 
@@ -97,27 +96,29 @@ public class PoliceOfficer {
      */
     private double calculateFine(ParkedCar car, ParkingMeter meter) {
         int notPaidMinutes = car.getNumberOfMinutesParked() - meter.getNumberOfPurchasedMinutes();
-        int k = notPaidMinutes % MINUTES_IN_HOUR;
-        double fine = 0;
         int count = 0;
-        if (isParkingTimeExpired(car, meter) == true) {
-            if (notPaidMinutes % MINUTES_IN_HOUR == 0) {
-                fine = ONE_HOUR_FINE_AMOUNT * notPaidMinutes / MINUTES_IN_HOUR;
-            }
-            if (notPaidMinutes < 60) {
-                fine = ONE_HOUR_FINE_AMOUNT;
-            }
-            if (notPaidMinutes % MINUTES_IN_HOUR != 0) {
-                while (notPaidMinutes > MINUTES_IN_HOUR) {
-                    notPaidMinutes = notPaidMinutes - MINUTES_IN_HOUR;
-                    count++;
-                }
 
-                fine = ONE_HOUR_FINE_AMOUNT * (count + 1);
-            }
+        if (isParkingTimeExpired(car, meter) != true)
+            return 0;
 
+        if (notPaidMinutes % MINUTES_IN_HOUR == 0) {
+            return ONE_HOUR_FINE_AMOUNT * notPaidMinutes / MINUTES_IN_HOUR;
         }
-        return fine;
+
+        if (notPaidMinutes < 60) {
+            return ONE_HOUR_FINE_AMOUNT;
+        }
+
+        if (notPaidMinutes % MINUTES_IN_HOUR != 0) {
+            while (notPaidMinutes > MINUTES_IN_HOUR) {
+                notPaidMinutes = notPaidMinutes - MINUTES_IN_HOUR;
+                count++;
+            }
+
+            return ONE_HOUR_FINE_AMOUNT * (count + 1);
+        }
+
+        return 0;
     }
 
     /**
