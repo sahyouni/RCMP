@@ -50,13 +50,12 @@ public class PoliceOfficer {
      * @param name A parameter to set officer name
      */
     public void setOfficerName(String name) {
-        if (name == null) {
-            System.out.println("officer name must not be null");
-        } else {
-            if (name == "") {
-                System.out.println("officer name must not be empty String");
-            }
-        }
+        if (name == null)
+            throw new IllegalArgumentException("officer name must not be null");
+
+        if (name == "")
+            throw new IllegalArgumentException("officer name must not be an empty String");
+
         officerName = name;
     }
 
@@ -132,11 +131,13 @@ public class PoliceOfficer {
 
             ParkingTicket parkingTicket = new ParkingTicket(officerName, officerBadgeNumber,
                     car.getLicensePlateNumber(), calculateFine(car, meter));
-            System.out.println("Officer Name: " + getOfficerName());
-            System.out.println("Officer Badge Number: " + getOfficerBadgeNumber());
+
             System.out.println("Ticket Number: " + parkingTicket.getTicketNumber());
-            System.out.println("Car Lisence Plate Number: " + parkingTicket.getCarLicensePlateNumber());
-            System.out.println("Fine Amount In CAD: " + calculateFine(car, meter));
+
+            System.out.println("Officer Name: " + getOfficerName());
+            System.out.println("Officer Badge number: " + getOfficerBadgeNumber());
+            System.out.println("Car License Plate Number: " + parkingTicket.getCarLicensePlateNumber());
+            System.out.println("Fine amount: " + calculateFine(car, meter));
             return parkingTicket;
         } else {
             return null;
