@@ -92,20 +92,20 @@ public class ParkingTicketTest  {
     @Test
     public void testConstructorOfficerNameNull() {
         try {
-            final ParkingTicket ticket = new ParkingTicket(null, "VAN5225", "1A2B3C", 40);
-            fail("null officer name must throw an Illegal Argument Excepiton");
-        } catch (final IllegalArgumentException ex) {
+            ParkingTicket ticket = new ParkingTicket(null,"VAN5225", "1A2B3C", 40);
+            fail ("null officer name must throw an Illegal Argument Excepiton");
+        } catch(IllegalArgumentException ex){
             assertEquals("officer name must not be null", ex.getMessage());
             grader.addMark(1);
-        }
+        }   
     }
 
     @Test
     public void testConstructorOfficerNameEmptyString() {
         try {
-            final ParkingTicket ticket = new ParkingTicket("", "VAN5225", "1A2B3C", 40);
-            fail("Empty String officer name must throw an Illegal Argument Excepiton");
-        } catch (final IllegalArgumentException ex) {
+            ParkingTicket ticket = new ParkingTicket("","VAN5225", "1A2B3C", 40);
+            fail ("Empty String officer name must throw an Illegal Argument Excepiton");
+        } catch(IllegalArgumentException ex){
             assertEquals("officer name must not be an empty String", ex.getMessage());
             grader.addMark(1);
         }
@@ -114,7 +114,7 @@ public class ParkingTicketTest  {
     @Test
     public void testConstructorOfficerNamevalidValue() {
 
-        final ParkingTicket ticket = new ParkingTicket("Adam White", "VAN5225", "1A2B3C", 40);
+        ParkingTicket ticket = new ParkingTicket("Adam White","VAN5225", "1A2B3C", 40);
 
         assertEquals("Adam White", ticket.getOfficerName());
         grader.addMark(1);
@@ -124,29 +124,29 @@ public class ParkingTicketTest  {
     @Test
     public void testConstructorOfficerBadgeNumberNull() {
         try {
-            final ParkingTicket ticket = new ParkingTicket("Adam White", null, "1A2B3C", 40);
-            fail("null officer badge number must throw an Illegal Argument Excepiton");
-        } catch (final IllegalArgumentException ex) {
+            ParkingTicket ticket = new ParkingTicket("Adam White",null, "1A2B3C", 40);
+            fail ("null officer badge number must throw an Illegal Argument Excepiton");
+        } catch(IllegalArgumentException ex){
             assertEquals("badge number must not be null", ex.getMessage());
             grader.addMark(1);
-        }
+        }       
     }
 
     @Test
     public void testConstructorOfficerBadgeNumberEmptyString() {
         try {
-            final ParkingTicket ticket = new ParkingTicket("Adam White", "", "1A2B3C", 40);
-            fail("Empty String  officer badge number must throw an Illegal Argument Excepiton");
-        } catch (final IllegalArgumentException ex) {
+            ParkingTicket ticket = new ParkingTicket("Adam White","", "1A2B3C", 40);
+            fail ("Empty String  officer badge number must throw an Illegal Argument Excepiton");
+        } catch(IllegalArgumentException ex){
             assertEquals("badge number must not be empty String", ex.getMessage());
             grader.addMark(1);
-        }
+        }       
     }
 
     @Test
     public void testConstructorOfficerBadgeNumberValidValue() {
 
-        final ParkingTicket ticket = new ParkingTicket("Adam White", "VAN5225", "1A2B3C", 40);
+        ParkingTicket ticket = new ParkingTicket("Adam White","VAN5225", "1A2B3C", 40);
         assertEquals("VAN5225", ticket.getOfficerBadgeNumber());
         grader.addMark(1);
 
@@ -155,29 +155,29 @@ public class ParkingTicketTest  {
     @Test
     public void testConstructorCarLicensePalateNumberNull() {
         try {
-            final ParkingTicket ticket = new ParkingTicket("Adam White", "VAN5225", null, 40);
-            fail("null  car license number must throw an Illegal Argument Excepiton");
-        } catch (final IllegalArgumentException ex) {
+            ParkingTicket ticket = new ParkingTicket("Adam White","VAN5225", null, 40);
+            fail ("null  car license number must throw an Illegal Argument Excepiton");
+        } catch(IllegalArgumentException ex){
             assertEquals("car license plate number must not be null", ex.getMessage());
             grader.addMark(1);
-        }
+        }       
     }
 
     @Test
     public void testConstructorCarLicensePalateNumberEmptyString() {
         try {
-            final ParkingTicket ticket = new ParkingTicket("Adam White", "VAN5225", "", 40);
-            fail("Empty String  car license number must throw an Illegal Argument Excepiton");
-        } catch (final IllegalArgumentException ex) {
+            ParkingTicket ticket = new ParkingTicket("Adam White","VAN5225", "", 40);
+            fail ("Empty String  car license number must throw an Illegal Argument Excepiton");
+        } catch(IllegalArgumentException ex){
             assertEquals("car license plate number must not be empty String", ex.getMessage());
             grader.addMark(1);
-        }
+        }       
     }
 
     @Test
     public void testConstructorCarLicensePalateNumberValidValue() {
 
-        final ParkingTicket ticket = new ParkingTicket("Adam White", "VAN5225", "1A2B3C", 40);
+        ParkingTicket ticket = new ParkingTicket("Adam White","VAN5225", "1A2B3C", 40);
         assertEquals("1A2B3C", ticket.getCarLicensePlateNumber());
         grader.addMark(1);
 
@@ -187,9 +187,9 @@ public class ParkingTicketTest  {
     public void testConstructorfineAmount0() {
 
         try {
-            final ParkingTicket ticket = new ParkingTicket("Adam White", "VAN5225", "1A2B3C", 0);
-            fail("0 fine amount must throw an Illegal Argument Excepiton");
-        } catch (final IllegalArgumentException ex) {
+            ParkingTicket ticket = new ParkingTicket("Adam White","VAN5225", "1A2B3C", 0);
+            fail ("0 fine amount must throw an Illegal Argument Excepiton");
+        } catch(IllegalArgumentException ex) {
             assertEquals("fine amount must not be 0", ex.getMessage());
             grader.addMark(1);
         }
@@ -200,9 +200,9 @@ public class ParkingTicketTest  {
     public void testConstructorfineAmountNegative() {
 
         try {
-            final ParkingTicket ticket = new ParkingTicket("Adam White", "VAN5225", "1A2B3C", -1);
-            fail(" negative fine amount must throw an Illegal Argument Excepiton");
-        } catch (final IllegalArgumentException ex) {
+            ParkingTicket ticket = new ParkingTicket("Adam White","VAN5225", "1A2B3C", -1);
+            fail (" negative fine amount must throw an Illegal Argument Excepiton");
+        } catch(IllegalArgumentException ex) {
             assertEquals("fine amount must not be negative", ex.getMessage());
             grader.addMark(1);
         }
@@ -212,15 +212,15 @@ public class ParkingTicketTest  {
     @Test
     public void testConstructorfineAmountValidValue() {
 
-        final ParkingTicket ticket = new ParkingTicket("Adam White", "VAN5225", "1A2B3C", 20);
-        assertEquals(20, ticket.getFineAmountInCAD(), 0.005);
+        ParkingTicket ticket = new ParkingTicket("Adam White","VAN5225", "1A2B3C",20 );
+        assertEquals(20, ticket.getFineAmountInCAD(),0.005);
         grader.addMark(1);
     }
 
     @Test
     public void testConstructorTicketNumber() {
         ParkingTicket.resetCounter();
-        final ParkingTicket ticket = new ParkingTicket("Adam White", "VAN5225", "1A2B3C", 20);
+        ParkingTicket ticket = new ParkingTicket("Adam White","VAN5225", "1A2B3C",20 ); 
         assertEquals("VAN1001", ticket.getTicketNumber());
         grader.addMark(1);
     }
@@ -228,22 +228,22 @@ public class ParkingTicketTest  {
     @Test
     public void testConstructorTicketNumberSEquential() {
         ParkingTicket.resetCounter();
-        final ParkingTicket ticket = new ParkingTicket("Adam White", "VAN5225", "1A2B3C", 20);
-        final ParkingTicket ticket2 = new ParkingTicket("Adam White", "VAN5225", "1A2B3C", 20);
-        final ParkingTicket ticket3 = new ParkingTicket("Adam White", "VAN5225", "1A2B3C", 20);
-        assertEquals("VAN1001", ticket.getTicketNumber());
+        ParkingTicket ticket = new ParkingTicket("Adam White","VAN5225", "1A2B3C",20 ); 
+        ParkingTicket ticket2 = new ParkingTicket("Adam White","VAN5225", "1A2B3C",20 ); 
+        ParkingTicket ticket3 = new ParkingTicket("Adam White","VAN5225", "1A2B3C",20 ); 
+        assertEquals("VAN1001",ticket.getTicketNumber());
         assertEquals("VAN1003", ticket3.getTicketNumber());
         grader.addMark(1);
     }
 
     @Test
-    public void testDisplayDetails() {
+    public void  testDisplayDetails() {
         ParkingTicket.resetCounter();
 
         final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
         final PrintStream originalOut = System.out;
-        System.setOut(new PrintStream(outContent));
-        final ParkingTicket ticket = new ParkingTicket("Bob Smith", "RCMP2251", "1A2B3C", 150.0);
+        System.setOut(new PrintStream (outContent));
+        ParkingTicket ticket = new ParkingTicket("Bob Smith", "RCMP2251", "1A2B3C", 150.0);
         ticket.displayDetails();
         assertEquals("Ticket Number: VAN1001" + System.getProperty("line.separator") 
             +"Officer Name: Bob Smith" + System.getProperty("line.separator") 
