@@ -15,7 +15,6 @@ import java.lang.reflect.InvocationTargetException;
 
 
 
-
 /**
  * 
  */
@@ -194,7 +193,7 @@ public class PoliceOfficerTest {
         PoliceOfficer p = new PoliceOfficer("Adam White","RCMP5225");
         ParkedCar car = new ParkedCar("Bob Smith", "Porsche", 2015, "1A2B3C", 61);
         ParkingMeter meter = new ParkingMeter("Burnaby",false,10.5,60);
-        assertNotNull(p.issueParkingTicket(car, meter));
+       assertNotNull(p.issueParkingTicket(car, meter));
         grader.addMark(1);
 
     }
